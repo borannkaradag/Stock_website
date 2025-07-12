@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Transaction History
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <h2 class="table-title">My Portfolio</h2>
+        <div class="table-wrapper">
+            <table id="history-table" class="table">
+                <thead>
+                    <tr>
+                        <th>Stock</th>
+                        <th>Stock_amount</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stock in user_portfolio %}
+                    <tr>
+                        <td>{{ stock['Stock'] }}</td>
+                        <td>{{ stock['Stock_amount'] }}</td>
+                        <td class="price">{{ prices[stock['Stock']] | usd }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+{% endblock %}

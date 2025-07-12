@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+
+{% endblock %}
+
+{% block main %}
+    {% if message%}
+    <script>
+        alert({{ message|tojson }});
+    </script>
+    {% endif %}
+    <form action="/sell" method="post">
+        <div class="mb-3">
+            <select name="Stock">
+                {% for i in assets %}
+                <option value = "{{i['Stock']}}">{{i['Stock']}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="share" placeholder="Share" type="input">
+        </div>
+        <button class="btn btn-primary" type="submit">Sell</button>
+    </form>
+{% endblock %}

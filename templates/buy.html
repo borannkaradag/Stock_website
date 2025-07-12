@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+
+{% endblock %}
+
+{% block main %}
+    {% if message%}
+    <script>
+        alert({{ message|tojson }});
+    </script>
+    {% endif %}
+    <form action="/buy" method="post">
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="symbol" placeholder="Symbol" type="input">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="share" placeholder="Share" type="input">
+        </div>
+        <button class="btn btn-primary" type="submit">Buy</button>
+    </form>
+{% endblock %}
